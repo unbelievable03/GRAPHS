@@ -1,0 +1,40 @@
+#include<bits/stdc++.h>
+#define pb push_back
+#define N 10
+using namespace std;
+bool visited[N];
+vector<int> adj[N];
+void dfs(int s)
+{
+   if(visited[s])
+   {
+       return ;
+   }
+    visited[s]=true;
+    for(auto u:adj[s])
+    {
+        dfs(u);
+    }
+}
+int main()
+{
+    adj[1].pb(2);
+    adj[1].pb(4);
+    adj[2].pb(3);
+    adj[2].pb(5);
+    adj[2].pb(1);
+    adj[3].pb(5);
+    adj[3].pb(2);
+    adj[5].pb(3);
+    adj[5].pb(2);
+    adj[4].pb(1);
+    int s=1;
+    dfs(s);
+}
+//      (1)== == == ==(2)
+//      .              .  =
+//      .              .     =
+//      .              .       (3)
+//      .              .     =
+//      .              .   =
+//      (4)            (5)
