@@ -1,0 +1,19 @@
+void sssp(int node, int dist)
+{
+    vis[node]=1;
+    dis[node]=dist;
+    FOR(i,0,sz(v[node]))
+    {
+        if(vis[v[node][i]]==0)
+        {
+            sssp(v[node][i],dis[node]+1);
+        }
+    }
+}
+
+
+ABOVE IS THE FUNCTION FOR SHORTEST SOURCE SINGLE PATH IN A TREE
+A TREE IS A GRAPH WITH A SINGLE CONNECTED COMPONENT AND N NODES AND N-1 EDGES
+IN THE MAIN FUNCTION CALL FOR ROOT NODE FOR WHICH SSSP IS TO BE CALCULATED BY
+sssp(x,0);
+INITIALISE THE DISTANCE OF x FROM ITSELF AS 0
