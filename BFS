@@ -1,0 +1,24 @@
+vi  v[10005];
+int vis[10005];
+int dis[10005];
+void BFS(int src)
+{
+    queue<int> q;
+    q.push(src);
+    vis[src]=1;
+    dis[src]=0;
+    while(!q.empty()){
+        int curr= q.front();
+        q.pop();
+        FOR(i,0,  sz(v[curr])){
+            if(vis[v[curr][i]]==0){
+                q.push(v[curr][i]);
+                dis[ v[curr][i] ]= dis[curr]+1;
+                vis[ v[curr][i] ]=1;
+            }
+        }
+    }
+}
+
+
+IMP CONCEPT
