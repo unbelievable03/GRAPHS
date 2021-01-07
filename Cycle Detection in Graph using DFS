@@ -1,0 +1,17 @@
+vi v[200005];
+int vis[200005];
+bool dfs(int node, int par)
+{
+    vis[node]=1;
+    FOR(i,0,sz(v[node])){
+        if(vis[v[node][i]]==0){
+            if( dfs( v[node][i],node)==true){
+                return true;
+            }
+        }
+        else if ( par!= v[node][i] ){
+            return true;
+        }
+    }
+    return false;
+}
