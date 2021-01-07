@@ -1,0 +1,24 @@
+int  timer=1;
+int  vis[100005];
+int  In[100005];
+int  Out[100005];
+vi v[100005];
+void dfs(int  node){
+    vis[node]=1;
+    In[node]=timer;
+    timer++;
+    FOR(i,0,sz(v[node])){
+        if(vis[ v[node][i]]==0){
+            dfs(v[node][i]);
+        }
+    }
+    Out[node]=timer;
+    timer++;
+}
+
+GIVEN QUESTION WHETHER ONE NODE LIES IN SUBTREE OF ANOTHER
+
+IF ONE NODE LIES IN SUBTREE OF THE OTHER NODE 
+THEN ITS IN TIME > IN TIME OF ITS ROOT
+AND ITS OUT TIME WILL BE SMALLER THAN OUT TIME OF THE ROOT NODE
+TIME COMPLEXITY OF CHECKING IS O(1);
