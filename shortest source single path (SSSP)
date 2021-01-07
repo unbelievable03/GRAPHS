@@ -1,11 +1,8 @@
-void sssp(int node, int dist)
-{
+void sssp(int node, int dist){
     vis[node]=1;
     dis[node]=dist;
-    FOR(i,0,sz(v[node]))
-    {
-        if(vis[v[node][i]]==0)
-        {
+    FOR(i,0,sz(v[node])){
+        if(vis[v[node][i]]==0){
             sssp(v[node][i],dis[node]+1);
         }
     }
