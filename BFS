@@ -1,6 +1,6 @@
-vi  v[10005];
-int vis[10005];
-int dis[10005];
+vi  v[100005];
+int vis[100005];
+int dis[100005];
 void BFS(int src)
 {
     queue<int> q;
