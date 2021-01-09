@@ -1,0 +1,26 @@
+vi  v[100005];
+int vis[100005];
+int in[100005];
+int low[100005];
+int timer;
+void dfs(int node, int par){
+    vis[node]=1;
+    in[node]=low[node]=timer;
+    timer++;
+    FOR(i,0,sz(v[node])){
+        if(v[node][i]==par){continue;}
+        if ( vis[v[node][i]]==1){
+            // this edge from node to v[node][i]  is back edge as its  not a parent and also visited
+            low[node]= min( low[node], in[v[node][i]]);
+        }
+        else{
+            // edge from node to v[node][i] is a forward edge
+            dfs(v[node][i],node);
+            if(low[v[node][i]] > in[node]){
+                cout<<node<<"->"<<v[node][i]<<" is a bridge"<<endl;
+            }
+            low[node]=min(low[node],low[v[node][i]]);
+        }
+    }
+}
+
