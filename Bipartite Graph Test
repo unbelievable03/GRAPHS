@@ -1,17 +1,14 @@
-vi v[2005];
-int vis[2005];
-int col[2005];
+vi v[100005];
+int vis[100005];
+int col[100005];
 bool dfs(int node, int c){
     vis[node]=1;
     col[node]=c;
     FOR(i,0,sz(v[node])){
         if(vis[v[node][i]]==0){
-            if(dfs (  v[node][i],col[node]^1 )==false){
-                return false;
-            }
+            if(dfs (  v[node][i],col[node]^1 )==false){return false;}
         }
-        else if ( col[node]== col[v[node][i]]){
-            return false;
+        else if ( col[node]== col[v[node][i]]){return false;
         }
     }
     return true;
