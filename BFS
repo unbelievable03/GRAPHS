@@ -1,6 +1,5 @@
 vi  v[100005];
-int vis[100005];
-int dis[100005];
+int vis[100005],dis[100005];
 void BFS(int src)
 {
     queue<int> q;
@@ -19,6 +18,7 @@ void BFS(int src)
         }
     }
 }
+
 
 
 IMP CONCEPT
