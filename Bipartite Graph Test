@@ -1,18 +1,15 @@
-vi v[100005];
-int vis[100005];
-int col[100005];
-bool dfs(int node, int c){
+vi v[100005];int vis[100005],col[100005];
+bool bipartite(int node, int c){
     vis[node]=1;
     col[node]=c;
     FOR(i,0,sz(v[node])){
         if(vis[v[node][i]]==0){
-            if(dfs (  v[node][i],col[node]^1 )==false){return false;}
+            if(bipartite( v[node][i],col[node]^1 )==false){return false;}
         }
         else if ( col[node]== col[v[node][i]]){return false;
         }
     }
     return true;
 }
-
 IN BIPARTITTE GRAPH TEST IF IT CONSISTS OF A CYCLE WITH ODD NUMBER OF NODES THEN 
 THEN WHOLE GRAPH IS NOT BIPARTITE
