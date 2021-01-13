@@ -1,7 +1,5 @@
-vi  v[100005];
-int vis[100005],dis[100005];
-void BFS(int src)
-{
+vi  v[100005];int vis[100005],dis[100005];
+void BFS(int src){
     queue<int> q;
     q.push(src);
     vis[src]=1;
@@ -18,8 +16,6 @@ void BFS(int src)
         }
     }
 }
-
-
 
 IMP CONCEPT
 GENERALLY USED TO CALCULATE THE SHORTEST DISTANCE OF A REQUIRED NODE FROM 
