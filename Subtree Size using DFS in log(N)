@@ -1,18 +1,18 @@
+
 vi  v[10005];
 int vis[10005];
 int subSize[100005];
 int dfs(int node)
 {
-    vis[node]=1;
-    int curr_size=1;
-    FOR(i,0,sz(v[node]))
-    {
-        if(vis[v[node][i]]==0)
-        {
-            curr_size += dfs(v[node][i]);
-        }
-    }
-    subSize[node]=curr_size;
-    return curr_size;
+	vis[node]=1;
+	int curr_size=1;
+	FOR(i,0,sz(v[node]))
+	{
+		if(vis[v[node][i]]==0)
+		{
+			curr_size += dfs(v[node][i]);
+		}
+	}
+	subSize[node]=curr_size;
+	return curr_size;
 }
-
