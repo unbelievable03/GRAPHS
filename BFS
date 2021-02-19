@@ -1,20 +1,25 @@
-vi  v[100005];int vis[100005],dis[100005];
-void BFS(int src){
-    queue<int> q;
-    q.push(src);
-    vis[src]=1;
-    dis[src]=0;
-    while(!q.empty()){
-        int curr= q.front();
-        q.pop();
-        FOR(i,0,  sz(v[curr])){
-            if(vis[v[curr][i]]==0){
-                q.push(v[curr][i]);
-                dis[ v[curr][i] ]= dis[curr]+1;
-                vis[ v[curr][i] ]=1;
-            }
-        }
-    }
+const int N=2e5+5;
+
+vi adj[N];vi d(N); vi p(N);vector<bool>used(N);
+
+void bfs(int s){
+	queue<int>q;
+	q.push(s);
+	used[s]=true;
+	p[s]=-1;
+	d[s]=0;
+	while(!q.empty()){
+		int v= q.front();
+		q.pop();
+		for(int u:adj[v]){
+			if(!used[u]){
+				used[u]=true;
+				q.push(u);
+				d[u]= d[v]+1;
+				p[u]=v;
+			}
+		}
+	}
 }
 
 IMP CONCEPT
